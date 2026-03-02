@@ -1,0 +1,22 @@
+# --- Python Virtual Environment ---
+.venv/
+venv/
+env/
+
+# --- Python Cache ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Deep Learning Models & Weights ---
+*.h5
+*.weights.h5
+saved_model/
+
+# --- Raw Data & Landmarks (CRITICAL) ---
+LSTM_Dataset/
+*.npy
+
+# --- OS Generated Files ---
+.DS_Store
+Thumbs.db
