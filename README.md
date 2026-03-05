@@ -40,3 +40,29 @@ The current LSTM model has been trained on 30 sequences per word to recognize th
 ```bash
 https://github.com/pradeep23g/SignLanguageInterpreter
 cd SignLanguageInterpreter
+```
+### 2. Set Up the Virtual Environment (Recommended)
+```bash
+python -m venv .venv
+# On Windows:
+.\.venv\Scripts\activate
+# On Mac/Linux:
+source .venv/bin/activate
+```
+### 3. Install Dependencies
+Ensure you are using Python 3.12+ and install the strict version requirements:
+```bash
+pip install -r requirements.txt
+```
+### 💻 Running the Application
+Start the AI Backend Server
+```Bash
+python -m uvicorn main:app --reload
+```
+Wait for the Application startup complete message in your terminal.
+
+### Launch the Frontend
+
+Local Web App: Simply double-click index.html to open the experimental HUD in your browser.
+
+
