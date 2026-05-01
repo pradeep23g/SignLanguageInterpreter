@@ -5,9 +5,9 @@ import mediapipe as mp
 import time
 
 # 1. Hackathon 10 PM Evaluation Config
-ACTIONS = ['Hello', 'How are you', 'I need help', 'Sorry', 'Thank you']
+ACTIONS = ['Good Morning','Hello','How are you','I am fine', 'Sorry', 'Thank you']
 SEQ_COUNT = 30    # Number of videos per phrase
-FRAME_COUNT = 20  # 0.8-second memory window to capture full phrases
+FRAME_COUNT = 30  # 0.8-second memory window to capture full phrases
 DATA_PATH = "LSTM_Dataset"
 
 # 2. Setup Folders

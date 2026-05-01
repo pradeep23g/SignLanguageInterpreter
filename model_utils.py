@@ -5,7 +5,7 @@ from tensorflow.keras.layers import LSTM, Dense, Dropout, Input
 
 def build_lstm_model(num_classes):
     model = Sequential([
-        Input(shape=(20, 126)), 
+        Input(shape=(30, 126)), 
         LSTM(64, return_sequences=True, activation='relu'),
         LSTM(128, return_sequences=False, activation='relu'),
         Dense(64, activation='relu'),

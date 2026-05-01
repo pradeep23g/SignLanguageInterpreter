@@ -15,7 +15,7 @@ app.add_middleware(
 )
 
 # --- AI CONFIGURATION ---
-ACTIONS = np.array(['Hello', 'How are you', 'I need help', 'Sorry', 'Thank you']) 
+ACTIONS = np.array(['Good Morning','Hello','How are you','I am fine', 'Sorry', 'Thank you']) 
 
 # Build the architecture
 model = build_lstm_model(len(ACTIONS))
@@ -25,7 +25,7 @@ model.load_weights('isl_weights.weights.h5')
 
 # --- THE ENGINE WARM-UP (Fixes the 7-second delay) ---
 print("🔥 Warming up the Deep Learning Engine (Compiling Graph)...")
-dummy_data = np.zeros((1, 20, 126)) # Create a fake 45-frame sequence of zeros
+dummy_data = np.zeros((1, 30, 126)) # Create a fake 45-frame sequence of zeros
 model.predict(dummy_data, verbose=0) # Force TensorFlow to compile the graph now
 print("✅ Engine Warmed Up! Ready for Real-Time Video.")
 # ----------------------------------------------------
@@ -49,13 +49,13 @@ async def websocket_endpoint(websocket: WebSocket):
             # -------------------------------------------
             
             sequence.append(landmarks)
-            sequence = sequence[-20:] # Maintain strict 45-frame rolling window
+            sequence = sequence[-30:] # Maintain strict 45-frame rolling window
             
             # DEBUG: Watch the memory buffer fill up in your terminal
             print(f"👀 Tracking Hands... Buffer: {len(sequence)}/20", end="\r")
             
             # Only run the AI prediction when the memory buffer is full
-            if len(sequence) == 20:
+            if len(sequence) == 30:
                 res = model.predict(np.expand_dims(sequence, axis=0), verbose=0)[0]
                 
                 best_match_index = np.argmax(res)

@@ -5,10 +5,10 @@ from tensorflow.keras.utils import to_categorical
 from model_utils import build_lstm_model
 
 # 1. Exact Match Configuration
-ACTIONS = np.array(['Hello', 'How are you', 'Sorry', 'I need help', 'Thank you'])
+ACTIONS = np.array(['Good Morning','Hello','How are you','I am fine', 'Sorry', 'Thank you'])
 DATA_PATH = "LSTM_Dataset"
 SEQ_COUNT = 30
-FRAME_COUNT = 20 # The 0.8 second window
+FRAME_COUNT = 30 # The 0.8 second window
 
 print("📂 Loading 45-Frame Sequences...")
 label_map = {label:num for num, label in enumerate(ACTIONS)}
